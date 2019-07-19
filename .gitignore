@@ -1,0 +1,11 @@
+# Project folders/files
+.env/*
+
+# OS Files
+.DS_Store
+
+# Jupyter Notebook
+.ipynb-checkpoint.py
+
+# Visual Studio Code
+.vscode
