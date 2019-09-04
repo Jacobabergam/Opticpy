@@ -24,8 +24,6 @@
 
 import sys
 
-import numpy as np
-
 
 def public(f):
     """Use a decorator to avoid retyping function/class names.
