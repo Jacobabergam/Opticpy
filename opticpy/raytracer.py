@@ -9,6 +9,15 @@ data sets.
 Zemax will provide a valuable calibration for this toolset though.
 """
 
+"""Goal: To write a ray tracer for wavelength specturm and implement
+various light/surface interactions and different optical systems to 
+be simulated on cloud computers. Current optical simulation tools 
+do not allow for Cloud useage and are therfor bottle-necked. Zemax 
+is unable to even use GPU acceleration, which is severlly limiting.
+
+Goal is to accelearte ray sim as fast as possible, and allow option to 
+use GPU in cloud system to calculate large data sets to be used when evaluating 
+lens changes and system impact"""
 
 # class Scene:
 """Here we will layout the whole optical scene. This will include
@@ -123,6 +132,14 @@ multiple shots: define a realistic/changing wavelength and pulse width
 Thermal impact: change material R+T+A over wavelength as well as errors from
     improper athermaliszation. Use thermal model (or add in some thermal characterstics)
     to determin source wavelength dist shift over temp.
+    
+    For lens element, Consider! End all rays in a simulation at a flat plan of
+    equal diameter (or a little later) than first element and ~1 inch in front (or other).
+    Then save all ray location/intensities/angle/wavelength on that surface in bit format.
+    This allows us to analyse the same scene with various lens configurations. Meaning
+    we can change lens elements, barrel structure, AR coating, BP elements, Baffles, thermal expansion,
+    defocus, missalignemnet and compare exactly the impact on the full scene previosly calculated. 
+
 Detector ROIC architecture: SPAD vs PIN or other. exact system to turn photons to electrons
 Moving targets/scenes: study many scenes and how they interact, new sources coming into view
     etc. 
@@ -130,5 +147,4 @@ Model Rain/snow: Model changing atmosphere shot to shot. Fixed scene that has ga
     to define falling snow/rain (or simple physics engine). 
     ->This will explode complexity and number of calculations. Best is to add in rain/snow as volume
     scatter/absorbtion function at first, then as real rain drops of random size/distribution.
-
-
+"""
